@@ -16,47 +16,98 @@ extension String
     }
 }
 
-func add(a: Int, b: Int) -> (Bool, Int) {
-    return (true, a + b)
+func add(left: Int, right: Int) -> Int {
+    return left + right
 }
 
-func sub(a: Int, b: Int) -> (Bool, Int) {
-    return (true, a - b)
+func subtract(left: Int, right: Int) -> Int {
+    return left - right
 }
 
-func mul(a: Int, b: Int) -> (Bool, Int) {
-    return (true, a * b)
+func multiply(left: Int, right: Int) -> Int {
+    return left * right
 }
 
-func div(a: Int, b: Int) -> (Bool, Int) {
-    if b == 0 {
-        print("Illegal input: Int division by zero")
-        return (false, 0)
-    }
-    return (true, a / b)
+func divide(left: Int, right: Int) -> Int {
+    return left / right
 }
 
-func basic(a: Int, b: Int, c: String) -> Int {
+func mathOperation(left: Int, right: Int, operation: String) -> Int {
     var result = 0
-    var bool = true
     
-    if c == "-" {
-        result = sub(a: a, b: b).1
-    }else if c == "+" {
-        result = add(a: a, b: b).1
-    }else if c == "*" {
-        result = mul(a: a, b: b).1
-    }else if c == "/" {
-        (bool, result) = div(a: a, b: b)
-        if !bool {
-            
+    if operation == "add" {
+        result = add(left: left, right: right)
+    }else if operation == "subtract" {
+        result = subtract(left: left, right: right)
+    }else if operation == "multiply" {
+        result = multiply(left: left, right: right)
+    }else if operation == "divide" {
+        if right == 0 {
+            print("Illegal Input: int division by 0")
+        }else {
+            result = divide(left: left, right: right)
         }
+    }else{
+        print("Illegal Input: Illegal operation")
+    }
+    
+    
+    return result
+}
+
+func add(array: [Int]) -> Int {
+    var sum = 0
+    for num in array {
+        sum += num
+    }
+    return sum
+}
+
+func multiply(array: [Int]) -> Int {
+    var result = 1
+    for num in array {
+        result *= num
     }
     return result
 }
 
-var s = "1"
-var t: Int = Int(s)
+func average(array: [Int]) -> Int {
+    var ave = 0
+    for num in array {
+        ave += num
+    }
+    return ave/array.count
+}
+
+func count(array: [Int]) -> Int {
+    return array.count
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
