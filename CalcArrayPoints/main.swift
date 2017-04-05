@@ -8,32 +8,42 @@
 
 import Foundation
 
-extension String
-{
-    func trim() -> String
-    {
-        return self.trimmingCharacters(in: NSCharacterSet.whitespaces)
+
+//basic Func
+func add(left: Int?, right: Int?) -> Int? {
+    if let a = left!, let b = right! {
+        return a + b
+    }else {
+        return nil
     }
 }
 
-func add(left: Int, right: Int) -> Int {
-    return left + right
+func subtract(left: Int?, right: Int?) -> Int? {
+    if let a = left!, let b = right! {
+        return a - b
+    }else {
+        return nil
+    }
 }
 
-func subtract(left: Int, right: Int) -> Int {
-    return left - right
+func multiply(left: Int?, right: Int?) -> Int? {
+    if let a = left!, let b = right! {
+        return a * b
+    }else {
+        return nil
+    }
 }
 
-func multiply(left: Int, right: Int) -> Int {
-    return left * right
+func divide(left: Int?, right: Int?) -> Int? {
+    if let a = left!, let b = right! {
+        return a / b
+    }else {
+        return nil
+    }
 }
 
-func divide(left: Int, right: Int) -> Int {
-    return left / right
-}
-
-func mathOperation(left: Int, right: Int, operation: String) -> Int {
-    var result = 0
+func mathOperation(left: Int?, right: Int?, operation: String?) -> Int? {
+    var result: Int? = nil
     
     if operation == "add" {
         result = add(left: left, right: right)
@@ -55,6 +65,7 @@ func mathOperation(left: Int, right: Int, operation: String) -> Int {
     return result
 }
 
+//Array Func
 func add(array: [Int]) -> Int {
     var sum = 0
     for num in array {
@@ -84,13 +95,37 @@ func count(array: [Int]) -> Int {
 }
 
 
+//Points Func
+func add(p1: (Int, Int), p2: (Int, Int)) -> (Int, Int) {
+    return (p1.0 + p2.0, p1.1 + p2.1)
+}
 
+func subtract(p1: (Int, Int), p2: (Int, Int)) -> (Int, Int) {
+    return (p1.0 - p2.0, p1.1 - p2.1)
+}
 
+//Dictionary Func
+func add(p1: [String: Int?], p2: [String: Int?]) -> [String: Int?] {
+    var result: [String: Int?] = ["x": nil, "y": nil]
+    if let a = p1["x"]!, let b = p2["x"]! {
+        result["x"] = a + b
+    }
+    if let a = p1["y"]!, let b = p2["y"]! {
+        result["y"] = a + b
+    }
+    return result
+}
 
-
-
-
-
+func substract(p1: [String: Int?], p2: [String: Int?]) -> [String: Int?] {
+    var result: [String: Int?] = ["x": nil, "y": nil]
+    if let a = p1["x"]!, let b = p2["x"]! {
+        result["x"] = a - b
+    }
+    if let a = p1["y"]!, let b = p2["y"]! {
+        result["y"] = a - b
+    }
+    return result
+}
 
 
 
