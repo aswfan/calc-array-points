@@ -11,7 +11,7 @@ import Foundation
 
 //basic Func
 func add(left: Int?, right: Int?) -> Int? {
-    if let a = left!, let b = right! {
+    if let a = left, let b = right {
         return a + b
     }else {
         return nil
@@ -19,7 +19,7 @@ func add(left: Int?, right: Int?) -> Int? {
 }
 
 func subtract(left: Int?, right: Int?) -> Int? {
-    if let a = left!, let b = right! {
+    if let a = left, let b = right {
         return a - b
     }else {
         return nil
@@ -27,7 +27,7 @@ func subtract(left: Int?, right: Int?) -> Int? {
 }
 
 func multiply(left: Int?, right: Int?) -> Int? {
-    if let a = left!, let b = right! {
+    if let a = left, let b = right {
         return a * b
     }else {
         return nil
@@ -35,31 +35,32 @@ func multiply(left: Int?, right: Int?) -> Int? {
 }
 
 func divide(left: Int?, right: Int?) -> Int? {
-    if let a = left!, let b = right! {
+    if let a = left, let b = right {
         return a / b
     }else {
         return nil
     }
 }
 
-func mathOperation(left: Int?, right: Int?, operation: String?) -> Int? {
+func mathOperation(left: Int?, right: Int?, operation: (Int?, Int?) -> Int? ) -> Int? {
     var result: Int? = nil
     
-    if operation == "add" {
-        result = add(left: left, right: right)
-    }else if operation == "subtract" {
-        result = subtract(left: left, right: right)
-    }else if operation == "multiply" {
-        result = multiply(left: left, right: right)
-    }else if operation == "divide" {
-        if right == 0 {
-            print("Illegal Input: int division by 0")
-        }else {
-            result = divide(left: left, right: right)
-        }
-    }else{
-        print("Illegal Input: Illegal operation")
-    }
+    result = operation(left, right)
+//    if operation == "add" {
+//        result = add(left: left, right: right)
+//    }else if operation == "subtract" {
+//        result = subtract(left: left, right: right)
+//    }else if operation == "multiply" {
+//        result = multiply(left: left, right: right)
+//    }else if operation == "divide" {
+//        if right == 0 {
+//            print("Illegal Input: int division by 0")
+//        }else {
+//            result = divide(left: left, right: right)
+//        }
+//    }else{
+//        print("Illegal Input: Illegal operation")
+//    }
     
     
     return result
@@ -94,6 +95,14 @@ func count(array: [Int]) -> Int {
     return array.count
 }
 
+func mathOperation(array: [Int], operation: ([Int]) -> Int) -> Int {
+    return operation(array)
+}
+
+/*
+var a = [1, 2, 3, 4, 5]
+print(mathOperation(array: a, operation: add))
+*/
 
 //Points Func
 func add(p1: (Int, Int), p2: (Int, Int)) -> (Int, Int) {
@@ -104,29 +113,71 @@ func subtract(p1: (Int, Int), p2: (Int, Int)) -> (Int, Int) {
     return (p1.0 - p2.0, p1.1 - p2.1)
 }
 
+
+/*
+var a: (Int?, Int?) = (1, 2)
+var b: (Int?, Int?) = (2, 3)
+var c: (Int?, Int?) = (1, nil)
+print(add(p1: a, p2: b))
+print(subtract(p1: a, p2: c))
+ */
+
 //Dictionary Func
-func add(p1: [String: Int?], p2: [String: Int?]) -> [String: Int?] {
-    var result: [String: Int?] = ["x": nil, "y": nil]
-    if let a = p1["x"]!, let b = p2["x"]! {
-        result["x"] = a + b
+func add(p1: [String: Int]?, p2: [String: Int]?) -> [String: Int]? {
+    var result: [String: Int] = [:]
+    if let m = p1, let n = p2 {
+        if let a = m["x"], let b = n["x"] {
+            result["x"] = a + b
+        }
+        if let a = m["y"], let b = n["y"] {
+            result["y"] = a + b
+        }
+        return result
     }
-    if let a = p1["y"]!, let b = p2["y"]! {
-        result["y"] = a + b
-    }
-    return result
+    return nil
 }
 
-func substract(p1: [String: Int?], p2: [String: Int?]) -> [String: Int?] {
-    var result: [String: Int?] = ["x": nil, "y": nil]
-    if let a = p1["x"]!, let b = p2["x"]! {
-        result["x"] = a - b
+func subtract(p1: [String: Int]?, p2: [String: Int]?) -> [String: Int]? {
+    var result: [String: Int] = [:]
+    if let m = p1, let n = p2 {
+        if let a = m["x"], let b = n["x"] {
+            result["x"] = a - b
+        }
+        if let a = m["y"], let b = n["y"] {
+            result["y"] = a - b
+        }
+        return result
     }
-    if let a = p1["y"]!, let b = p2["y"]! {
-        result["y"] = a - b
-    }
-    return result
+    return nil
 }
 
+func add(p1: [String: Double]?, p2: [String: Double]?) -> [String: Double]? {
+    var result: [String: Double] = [:]
+    if let m = p1, let n = p2 {
+        if let a = m["x"], let b = n["x"] {
+            result["x"] = a + b
+        }
+        if let a = m["y"], let b = n["y"] {
+            result["y"] = a + b
+        }
+        return result
+    }
+    return nil
+}
+
+func subtract(p1: [String: Double]?, p2: [String: Double]?) -> [String: Double]? {
+    var result: [String: Double] = [:]
+    if let m = p1, let n = p2 {
+        if let a = m["x"], let b = n["x"] {
+            result["x"] = a - b
+        }
+        if let a = m["y"], let b = n["y"] {
+            result["y"] = a - b
+        }
+        return result
+    }
+    return nil
+}
 
 
 
