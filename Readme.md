@@ -4,11 +4,11 @@ Date: Spring 2017
 
 ### Requirements:
 
-Project Name: CalcArrayPoints
+__Project Name:__ CalcArrayPoints
 
-Repository Name: calc-array-points
+__Repository Name:__ calc-array-points
 
-Submission URL: https://github.com/<your-github-username>/calc-array-points (Links to an external site.) (Links to an external site.)
+__Submission URL:__ https://github.com/&lt; your-github-username>/calc-array-points (Links to an external site.) (Links to an external site.)
 
 Unit Tests:
 
@@ -20,7 +20,7 @@ This is not required, but if your code passes all the unit tests you are guarant
 
 - create four functions for add, subtract, multiply, divide
 
-each does the expected thing
+    - each does the expected thing
 
 - create a function that expects one of them along with two Ints
 
@@ -44,7 +44,7 @@ each does the expected thing
 
 - refactor all four down to another "generic math operation" approach
 
-like in the previous part
+    - like in the previous part
 
 #### Points &amp; Dictionary
 
@@ -57,7 +57,7 @@ like in the previous part
 ```
 - now use Dictionaries to represent points
 
-"x" is the x coordinate, "y" is the y coordinate
+    - "x" is the x coordinate, "y" is the y coordinate
 
 - create two functions for adding and subtracting points
 ```
