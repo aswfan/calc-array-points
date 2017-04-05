@@ -1,6 +1,6 @@
 ## This is 2nd assignment for INFO 449: Mobile Development: IOS (Spring 2017)
 
-Date: Apr. 4, 2017
+Date: Apr. 6, 2017
 
 ### Requirements:
 
